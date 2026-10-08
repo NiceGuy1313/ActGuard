@@ -61,6 +61,19 @@ def get_llm(provider: str, model: str, model_id: str | None, tool_delimiter: str
     if provider == "openai":
         client = openai.OpenAI(**openai_client_kwargs())
         llm = OpenAILLM(client, model)
+    elif provider == "anthropic":
+        api_key = os.getenv("ANTHROPIC_API_KEY")
+        if not api_key:
+            raise ValueError("ANTHROPIC_API_KEY must be set when using a direct Claude model")
+        client_kwargs = openai_client_kwargs(
+            api_key=api_key,
+            base_url="https://api.anthropic.com/v1/",
+        )
+        workspace_id = os.getenv("ANTHROPIC_WORKSPACE_ID")
+        if workspace_id:
+            client_kwargs["default_headers"] = {"anthropic-workspace-id": workspace_id}
+        client = openai.OpenAI(**client_kwargs)
+        llm = OpenAILLM(client, model)
     elif provider == "openrouter":
         client = openai.OpenAI(
             **openai_client_kwargs(

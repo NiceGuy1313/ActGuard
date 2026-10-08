@@ -52,6 +52,22 @@ verifier, and Hugging Face-compatible local models for embedding retrieval and
 contrastive log-probability attribution. Hugging Face authentication may be
 required before the default gated Llama checkpoint can be downloaded.
 
+To use a Claude API key directly for both the main agent and the ActGuard
+verifier, run:
+
+```bash
+export ANTHROPIC_API_KEY=...
+ACTGUARD_MODEL=claude-sonnet-4-6 \
+ACTGUARD_VERIFIER_MODEL=claude-sonnet-4-6 \
+uv run --frozen --extra actguard ./scripts/run_actguard.sh
+```
+
+This calls Anthropic's OpenAI SDK compatibility endpoint directly; it does not
+use OpenRouter. If the API key has access to multiple Anthropic workspaces, set
+`ANTHROPIC_WORKSPACE_ID` as well. The original OpenAI models remain the defaults
+for reproducible runs. Claude Sonnet 4 is also available through OpenRouter as
+`anthropic/claude-sonnet-4`.
+
 To use downloaded checkpoints, replace the values of
 `--reflective-audit-embedding-model` and
 `--reflective-audit-logprob-model` in `scripts/run_actguard.sh` with their local

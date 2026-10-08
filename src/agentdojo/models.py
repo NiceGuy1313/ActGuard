@@ -13,6 +13,8 @@ class ModelsEnum(StrEnum):
     GPT_4_0125_PREVIEW = "gpt-4-0125-preview"
     GPT_3_5_TURBO_0125 = "gpt-3.5-turbo-0125"
 
+    ANTHROPIC_CLAUDE_SONNET_4_6 = "claude-sonnet-4-6"
+
     OPENROUTER_QWEN_2_5_72B = "qwen/qwen-2.5-72b-instruct"
     OPENROUTER_QWEN3_235B = "qwen/qwen3-235b-a22b-2507"
     OPENROUTER_LLAMA_3_3_70B = "meta-llama/llama-3.3-70b-instruct:free"
@@ -23,6 +25,7 @@ class ModelsEnum(StrEnum):
     OPENROUTER_GEMINI_3_1_FLASH_LITE = "google/gemini-3.1-flash-lite"
     OPENROUTER_GPT_4O_MINI_2024_07_18 = "openai/gpt-4o-mini-2024-07-18"
     OPENROUTER_GPT_5_MINI = "openai/gpt-5-mini"
+    OPENROUTER_CLAUDE_SONNET_4 = "anthropic/claude-sonnet-4"
     OPENROUTER_DEEPSEEK_V4_FLASH = "deepseek/deepseek-v4-flash"
 
     QWEN3_MAX = "qwen3-max"
@@ -38,6 +41,7 @@ MODEL_PROVIDERS = {
     ModelsEnum.GPT_4_TURBO_2024_04_09: "openai",
     ModelsEnum.GPT_4_0125_PREVIEW: "openai",
     ModelsEnum.GPT_3_5_TURBO_0125: "openai",
+    ModelsEnum.ANTHROPIC_CLAUDE_SONNET_4_6: "anthropic",
     ModelsEnum.OPENROUTER_QWEN_2_5_72B: "openrouter",
     ModelsEnum.OPENROUTER_QWEN3_235B: "openrouter",
     ModelsEnum.OPENROUTER_LLAMA_3_3_70B: "openrouter",
@@ -48,6 +52,7 @@ MODEL_PROVIDERS = {
     ModelsEnum.OPENROUTER_GEMINI_3_1_FLASH_LITE: "openrouter",
     ModelsEnum.OPENROUTER_GPT_4O_MINI_2024_07_18: "openrouter",
     ModelsEnum.OPENROUTER_GPT_5_MINI: "openrouter",
+    ModelsEnum.OPENROUTER_CLAUDE_SONNET_4: "openrouter",
     ModelsEnum.OPENROUTER_DEEPSEEK_V4_FLASH: "openrouter",
     ModelsEnum.QWEN3_MAX: "mulerouter",
     ModelsEnum.VLLM_PARSED: "vllm_parsed",
@@ -63,6 +68,7 @@ MODEL_NAMES = {
     "gpt-4-turbo-2024-04-09": "GPT-4 Turbo",
     "gpt-4-0125-preview": "GPT-4 Turbo",
     "gpt-3.5-turbo-0125": "GPT-3.5",
+    "claude-sonnet-4-6": "Claude Sonnet 4.6",
     "qwen/qwen-2.5-72b-instruct": "Qwen 2.5",
     "qwen/qwen3-235b-a22b-2507": "Qwen 3",
     "meta-llama/llama-3.3-70b-instruct:free": "Llama 3.3",
@@ -73,6 +79,7 @@ MODEL_NAMES = {
     "google/gemini-3.1-flash-lite": "Gemini 3.1 Flash Lite",
     "openai/gpt-4o-mini-2024-07-18": "GPT-4o Mini",
     "openai/gpt-5-mini": "GPT-5 Mini",
+    "anthropic/claude-sonnet-4": "Claude Sonnet 4",
     "deepseek/deepseek-v4-flash": "DeepSeek V4 Flash",
     "qwen3-max": "Qwen 3 Max",
     "vllm_parsed": "Local OpenAI-compatible model",
